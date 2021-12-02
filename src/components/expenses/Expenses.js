@@ -16,10 +16,7 @@ function Expenses(props) {
         <div>
             <Card className='expenses'>
                 <ExpenseFilter selectedYear={filteredYear} onExpenseFilter={onExpenseFilterHandler} />
-                <ExpenseItem expense={props.expenses[0]} />
-                <ExpenseItem expense={props.expenses[1]} />
-                <ExpenseItem expense={props.expenses[2]} />
-                <ExpenseItem expense={props.expenses[3]} />
+                {props.expenses.map((expense) => <ExpenseItem expense={expense} />)}
             </Card>
         </div>
     );
