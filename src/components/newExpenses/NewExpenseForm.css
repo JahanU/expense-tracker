@@ -16,7 +16,7 @@
 .new-expense-control input {
     font: inherit;
     padding: 0.5rem;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
@@ -33,7 +33,7 @@
     border: 1px solid #00335d;
     background-color: #00335d;
     color: white;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-right: 1rem;
 }
 
