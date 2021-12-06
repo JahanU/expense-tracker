@@ -17,7 +17,7 @@
     font: inherit;
     padding: 0.5rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(223, 188, 188);
     width: 20rem;
     max-width: 100%;
 }
