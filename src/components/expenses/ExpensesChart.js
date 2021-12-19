@@ -24,7 +24,6 @@ function ExpenseChart(props) {
         maxValue = Math.max(maxValue, chartExpenseData[month].value);
     }
 
-    console.log('maxValue: ', maxValue);
 
     return (
         <Chart dataPoints={chartExpenseData} maxValue={maxValue} />
