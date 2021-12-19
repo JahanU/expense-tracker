@@ -4,16 +4,19 @@ import Card from '../ui/Card';
 import ExpenseFilter from '../expensesFilter/ExpenseFilter';
 import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
+import React, { useContext } from 'react';
+import ExpenseContext from '../../store/expense-context';
 
-function Expenses(props) {
+function Expenses() {
 
+    const expenseContext = useContext(ExpenseContext);
     const [filteredYear, setFilteredYear] = useState(new Date().getFullYear().toString());
 
     const onExpenseFilterHandler = (filteredYear) => {
         setFilteredYear(filteredYear);
     };
 
-    const filteredExpenses = props.expenses.filter((expense) =>
+    const filteredExpenses = expenseContext.expenses.filter((expense) =>
         expense.date.getFullYear().toString() === filteredYear);
 
     return (

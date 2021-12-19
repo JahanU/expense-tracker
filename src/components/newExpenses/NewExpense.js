@@ -1,8 +1,11 @@
 import './NewExpense.css';
 import NewExpenseForm from './NewExpenseForm';
-import react, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ExpenseContext from '../../store/expense-context';
 
-function NewExpense(props) {
+function NewExpense() {
+
+    const expenseContext = useContext(ExpenseContext);
     const [showForm, setShowForm] = useState(false);
 
     const saveExpenseHandler = (enteredExpenseData) => {
@@ -10,7 +13,7 @@ function NewExpense(props) {
             id: Math.random().toString(),
             ...enteredExpenseData
         }
-        props.onAddNewExpense(expenseData);
+        expenseContext.onAddNewExpense(expenseData);
         setShowForm(false);
     }
 

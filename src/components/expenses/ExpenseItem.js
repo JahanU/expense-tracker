@@ -1,8 +1,16 @@
 import ExpenseDate from './ExpenseItemDate';
 import Card from '../ui/Card';
 import './ExpenseItem.css';
+import React, { useContext } from 'react';
+import ExpenseContext from '../../store/expense-context';
 
-function ExpensiveItem(props) { // stateless/dumb/presentation component 
+function ExpensiveItem(props) {
+
+    const expenseContext = useContext(ExpenseContext);
+    const deleteItem = () => {
+        expenseContext.onDeleteNewExpense(props.expense.id);
+    }
+
     return (
         <li>
             <Card className='expense-item'>
@@ -10,6 +18,7 @@ function ExpensiveItem(props) { // stateless/dumb/presentation component
                 <div className='expense-item__description'>
                     <h2>{props.expense.title}</h2>
                     <div className='expense-item__price'>£{props.expense.amount}</div>
+                    <button onClick={deleteItem} class="btn"><i class="fa fa-trash"></i></button>
                 </div>
             </Card>
         </li>
