@@ -1,10 +1,12 @@
 import './NewExpenseForm.css';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ExpenseContext from '../../store/expense-context';
 
-function ExpenseForm(props) {
+function NewExpenseForm(props) {
     const [enteredTitle, setEnteredTitle] = useState('')
     const [enteredAmount, setEnteredAmount] = useState('')
     const [enteredDate, setEnteredDate] = useState('')
+    const expenseContext = useContext(ExpenseContext);
 
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -22,14 +24,12 @@ function ExpenseForm(props) {
         event.preventDefault();
 
         const expenseData = {
+            id: Math.random(),
             title: enteredTitle,
             amount: parseInt(enteredAmount),
             date: new Date(enteredDate)
         };
-
-        console.log(expenseData);
-
-        props.onSaveExpenseData(expenseData);
+        expenseContext.onAddNewExpense(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
@@ -64,4 +64,4 @@ function ExpenseForm(props) {
     );
 }
 
-export default ExpenseForm;
+export default NewExpenseForm;

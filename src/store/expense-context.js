@@ -20,7 +20,7 @@ export function ExpenseContextProvider(props) {
 
     const addNewExpenseHandler = (newExpense) => {
         setExpenses((prevState) => {
-            localStorage.setItem('expenses', JSON.stringify([...prevState, newExpense]));
+            localStorage.setItem('expenses', JSON.stringify([newExpense, ...prevState]));
             return [newExpense, ...prevState]
         });
     }
