@@ -16,8 +16,10 @@ function Expenses() {
         setFilteredYear(filteredYear);
     };
 
+    console.log('expenseContext: ', expenseContext);
     const filteredExpenses = expenseContext.expenses.filter((expense) =>
         expense.date.getFullYear().toString() === filteredYear);
+
 
     return (
         <div>

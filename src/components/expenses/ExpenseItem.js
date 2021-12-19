@@ -7,6 +7,7 @@ import ExpenseContext from '../../store/expense-context';
 function ExpensiveItem(props) {
 
     const expenseContext = useContext(ExpenseContext);
+
     const deleteItem = () => {
         expenseContext.onDeleteNewExpense(props.expense.id);
     }
@@ -18,7 +19,7 @@ function ExpensiveItem(props) {
                 <div className='expense-item__description'>
                     <h2>{props.expense.title}</h2>
                     <div className='expense-item__price'>£{props.expense.amount}</div>
-                    <button onClick={deleteItem} class="btn"><i class="fa fa-trash"></i></button>
+                    <button onClick={deleteItem} className="btn"><i className="fa fa-trash"></i></button>
                 </div>
             </Card>
         </li>

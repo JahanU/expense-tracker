@@ -10,7 +10,7 @@ function NewExpense() {
 
     const saveExpenseHandler = (enteredExpenseData) => {
         const expenseData = {
-            id: Math.random().toString(),
+            id: Math.random(),
             ...enteredExpenseData
         }
         expenseContext.onAddNewExpense(expenseData);

@@ -1,6 +1,10 @@
 import Chart from '../Chart/Chart';
-
+import React, { useContext } from 'react';
+import ExpenseContext from '../../store/expense-context';
 function ExpenseChart(props) {
+
+    const expenseContext = useContext(ExpenseContext);
+
     const chartExpenseData = [
         { id: '0', label: 'Jan', value: 0, },
         { id: '1', label: 'Feb', value: 0, },
@@ -18,7 +22,7 @@ function ExpenseChart(props) {
 
     let maxValue = 0;
 
-    for (const expense of props.expenses) {
+    for (const expense of expenseContext.expenses) {
         const month = expense.date.getMonth();
         chartExpenseData[month].value += expense.amount;
         maxValue = Math.max(maxValue, chartExpenseData[month].value);
